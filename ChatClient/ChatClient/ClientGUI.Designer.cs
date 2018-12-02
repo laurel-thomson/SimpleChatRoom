@@ -48,6 +48,7 @@
             this.uxSendMessageButton.TabIndex = 1;
             this.uxSendMessageButton.Text = "Send Message!";
             this.uxSendMessageButton.UseVisualStyleBackColor = true;
+            this.uxSendMessageButton.Click += new System.EventHandler(this.uxSendMessageButton_Click);
             // 
             // uxMessageListView
             // 

@@ -11,8 +11,10 @@ namespace ChatClient
     {
         static void Main(string[] args)
         {
-            var client = new ChatClient();
-            Application.Run(new ClientGUI());
+            var gui = new ClientGUI();
+            var client = new ChatController(gui);
+            gui.InitializeSendMessageDelegate(client.SendMessage);
+            Application.Run(gui);
         }
     }
 }

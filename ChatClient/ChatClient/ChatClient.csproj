@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatClient.cs" />
+    <Compile Include="ChatController.cs" />
     <Compile Include="ClientGUI.cs">
       <SubType>Form</SubType>
     </Compile>
