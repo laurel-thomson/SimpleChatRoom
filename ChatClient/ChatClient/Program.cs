@@ -10,7 +10,7 @@ namespace ChatClient
     {
         static void Main(string[] args)
         {
-            ChatClient.StartClient();
+            var client = new ChatClient();
             Console.ReadLine();
         }
     }
