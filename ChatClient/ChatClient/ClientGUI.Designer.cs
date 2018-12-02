@@ -31,6 +31,7 @@
             this.uxMessageTextBox = new System.Windows.Forms.TextBox();
             this.uxSendMessageButton = new System.Windows.Forms.Button();
             this.uxMessageListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // uxMessageTextBox
@@ -52,11 +53,17 @@
             // 
             // uxMessageListView
             // 
+            this.uxMessageListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.uxMessageListView.FullRowSelect = true;
+            this.uxMessageListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.uxMessageListView.Location = new System.Drawing.Point(72, 41);
             this.uxMessageListView.Name = "uxMessageListView";
+            this.uxMessageListView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.uxMessageListView.Size = new System.Drawing.Size(652, 250);
             this.uxMessageListView.TabIndex = 2;
             this.uxMessageListView.UseCompatibleStateImageBehavior = false;
+            this.uxMessageListView.View = System.Windows.Forms.View.Details;
             // 
             // ClientGUI
             // 
@@ -78,5 +85,6 @@
         private System.Windows.Forms.TextBox uxMessageTextBox;
         private System.Windows.Forms.Button uxSendMessageButton;
         private System.Windows.Forms.ListView uxMessageListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

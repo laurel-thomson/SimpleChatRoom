@@ -32,8 +32,7 @@ namespace ChatClient
             {
                 _messages.Add(message);
                 uxMessageListView.Items.Add(message);
-            }
-                ));
+            }));
         }
 
         private void uxSendMessageButton_Click(object sender, EventArgs e)
