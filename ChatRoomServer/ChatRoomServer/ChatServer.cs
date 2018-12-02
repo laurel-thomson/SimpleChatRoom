@@ -24,6 +24,7 @@ namespace ChatRoomServer
     public class ChatServer
     {
         public static ManualResetEvent allDone = new ManualResetEvent(false);
+        public static List<StateObject> _clientList = new List<StateObject>();
 
         public static void StartListening()
         {
@@ -65,6 +66,7 @@ namespace ChatRoomServer
 
             var state = new StateObject();
             state.ClientSocket = socket;
+            _clientList.Add(state);
             socket.BeginReceive(state.Buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(ReadCallback), state);
         }
@@ -91,8 +93,11 @@ namespace ChatRoomServer
                     // client. Display it on the console.  
                     Console.WriteLine("Read {0} bytes from socket. \n Data : {1}",
                         content.Length, content);
-                    // Echo the data back to the client.  
-                    Send(socket, content);
+                    // Echo the data back to all the clients
+                    foreach (var c in _clientList)
+                    {
+                        Send(c.ClientSocket, content);
+                    }
                 }
             }
         }
