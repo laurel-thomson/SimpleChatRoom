@@ -17,7 +17,12 @@ namespace ChatClient
 
         public void MessageReceived(string message)
         {
-            //do something with the received message
+            Console.WriteLine(message);
+        }
+
+        public void SendMessage(string message)
+        {
+            _socket.Send(message);
         }
     }
 }

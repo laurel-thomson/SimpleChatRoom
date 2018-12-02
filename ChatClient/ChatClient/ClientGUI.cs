@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +10,11 @@ using System.Windows.Forms;
 
 namespace ChatClient
 {
-    class Program
+    public partial class ClientGUI : Form
     {
-        static void Main(string[] args)
+        public ClientGUI()
         {
-            var client = new ChatClient();
-            Application.Run(new ClientGUI());
+            InitializeComponent();
         }
     }
 }
