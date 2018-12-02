@@ -12,3 +12,5 @@ C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignmen
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatRoomServer\ChatRoomServer\obj\Debug\ChatRoomServer.csproj.CoreCompileInputs.cache
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatRoomServer\ChatRoomServer\obj\Debug\ChatRoomServer.exe
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatRoomServer\ChatRoomServer\obj\Debug\ChatRoomServer.pdb
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatRoomServer\ChatRoomServer\bin\Debug\websocket-sharp.dll
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatRoomServer\ChatRoomServer\obj\Debug\ChatRoomServer.csproj.CopyComplete
