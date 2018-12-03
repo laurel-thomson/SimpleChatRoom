@@ -12,28 +12,26 @@ namespace ChatClient
 {
     public partial class ClientGUI : Form
     {
-        private Action<String> _sendMessage;
-        private List<String> _messages;
-        private string _name;
+        private Action<string> _sendMessage;
+        private ClientViewModel _viewModel;
 
-        public ClientGUI()
+        public ClientGUI(ClientViewModel viewModel)
         {
-            _messages = new List<string>();
+            _viewModel = viewModel;
             InitializeComponent();
+            uxMessagesDGV.DataSource = _viewModel.Messages;
         }
 
-        public void LaunchNamePrompt()
+        public void PromptForName()
         {
             using (var form = new NamePrompt())
             {
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    _name = form.Name;
-                    _sendMessage(":" + _name);
+                    _viewModel.UserName = form.Name;
                 }
             }
-
         }
 
         public void InitializeSendMessageDelegate(Action<String> SendMessage)
@@ -41,18 +39,9 @@ namespace ChatClient
             _sendMessage = SendMessage;
         }
 
-        public void AddMessageToList(string message)
-        {
-            Invoke(new Action(() =>
-            {
-                _messages.Add(message);
-                uxDisplayMessagesTextBox.Text += message + "\r\n";
-            }));
-        }
-
         private void uxSendMessageButton_Click(object sender, EventArgs e)
         {
-            _sendMessage(_name + ": " + uxMessageTextBox.Text);
+            _sendMessage(_viewModel.UserName + ": " + uxMessageTextBox.Text);
             uxMessageTextBox.Text = "";
         }
     }

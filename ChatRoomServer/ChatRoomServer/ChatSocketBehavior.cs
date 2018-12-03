@@ -7,13 +7,13 @@ namespace ChatRoomServer
 {
     public class ChatSocketBehavior : WebSocketBehavior
     {
-        public static List<String> messages = new List<String>();
+        public static List<String> Messages = new List<String>();
 
         protected override void OnOpen()
         {
             //When a new client connects to the server, send it all of the stored
             //messages
-            foreach (var m in messages)
+            foreach (var m in Messages)
             {
                 Sessions.SendTo(ID, m);
             }
@@ -33,6 +33,7 @@ namespace ChatRoomServer
                 //The message is a general chat message that needs to be broadcasted to
                 //all the clients.
                 Sessions.Broadcast(e.Data);
+                Messages.Add(e.Data);
             }
         }
     }

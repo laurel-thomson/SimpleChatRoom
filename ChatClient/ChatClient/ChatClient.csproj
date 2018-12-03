@@ -58,6 +58,8 @@
     <Compile Include="ClientGUI.Designer.cs">
       <DependentUpon>ClientGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientViewModel.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="NamePrompt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\ClientViewModel.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientGUI.resx">
