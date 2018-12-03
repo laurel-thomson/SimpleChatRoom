@@ -19,7 +19,7 @@ namespace ChatRoomServer
         public ServerController()
         {
             //Creating a new WebSocket that will connect to the ChatRoomDirectory at port #11000
-            _socket = new WebSocket("ws://127.0.0.1:11000/chat");
+            _socket = new WebSocket("ws://127.0.0.1:11000/dir");
             _socket.OnMessage += (sender, e) => { MessageReceived(e.Data); };
             _socket.Connect();
         }
@@ -78,6 +78,10 @@ namespace ChatRoomServer
                 else validPort = true;
             }
             _chatRoom = new ChatRoom(name, port, "127.0.0.1");
+
+            //send message to the ChatDirectory with the chosen name, port, and ipaddress
+            _socket.Send("JOIN," + _chatRoom.ToString());
+
             SetUpChatRoom();
         }
 

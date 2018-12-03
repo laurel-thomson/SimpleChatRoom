@@ -10,7 +10,7 @@ namespace ChatRoomDirectory
             //start at new Web Socket Server at port #11000
             var wss = new WebSocketServer(11000);
 
-            wss.AddWebSocketService<ChatSocketBehavior>("/chat");
+            wss.AddWebSocketService<ChatSocketBehavior>("/dir");
 
             wss.Start();
 
