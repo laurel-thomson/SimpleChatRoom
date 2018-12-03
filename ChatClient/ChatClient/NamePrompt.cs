@@ -21,16 +21,32 @@ namespace ChatClient
 
         private void uxOKButton_Click(object sender, EventArgs e)
         {
-            if (uxNameTextBox.Text == "")
+            string name = uxNameTextBox.Text;
+            if (name == "")
             {
                 MessageBox.Show("You must enter a name!");
+                return;
             }
-            else
+            if (!IsValidName(name))
             {
-                Name = uxNameTextBox.Text;
-                DialogResult = DialogResult.OK;
-                Close();
+                MessageBox.Show("Names cannot contain the character ':'.");
+                return;
             }
+            Name = name;
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private bool IsValidName(string name)
+        {
+            foreach(var c in name)
+            {
+                if (c == ':')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
