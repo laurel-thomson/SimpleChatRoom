@@ -73,7 +73,6 @@ namespace ChatClient
             {
                 //this means that a chosen name was rejected as a duplicate
                 _gui.RepromptForName();
-                _serverSocket.Send(":" + _viewModel.UserName);
             }
             else
             {

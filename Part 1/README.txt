@@ -3,10 +3,9 @@ was used to facilitate socket programming. The application allows the user to jo
 a single chat room, post messages, and see all messages posted by other users.  The user is instructed to create an alias,
 which must be unique.
 
-To run the application, first start the server by navigating to the ChatRoomServer directory.  Then, launch the ChatRoomServer
-Visual Studio solution and click "Run."  Next, launch a chat client by navigation to the ChatClient directory and clicking
-the ChatClient Visual Studio solution and clicking "Run."  You may launch any number of chat clients by opening up additional
-instances of the ChatClient solution.
+To run the application, first double click on the ChatRoomServer.exe file (the shortcut is located in this directory).
+Next, launch a client chat by double clicking on the ClientChat.exe file (the shortcut for the client is also in this directory.
+You may launch any number of clients by clicking on the ClientChat.exe shortcut repeatedly.
 
 On launch of the client, the program will prompt you for an alias.  The client will first check if the user name contains
 the character ':', which is not allowed (this is because ':' is utilized as character with special meaning).  If the user
