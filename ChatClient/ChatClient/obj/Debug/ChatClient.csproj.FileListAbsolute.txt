@@ -16,3 +16,4 @@ C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignmen
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatClient\ChatClient\obj\Debug\ChatClient.pdb
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatClient\ChatClient\obj\Debug\ChatClient.ClientGUI.resources
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatClient\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\ChatClient\ChatClient\obj\Debug\ChatClient.NamePrompt.resources

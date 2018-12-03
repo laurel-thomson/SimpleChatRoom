@@ -30,8 +30,7 @@
         {
             this.uxMessageTextBox = new System.Windows.Forms.TextBox();
             this.uxSendMessageButton = new System.Windows.Forms.Button();
-            this.uxMessageListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.uxDisplayMessagesTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // uxMessageTextBox
@@ -51,26 +50,20 @@
             this.uxSendMessageButton.UseVisualStyleBackColor = true;
             this.uxSendMessageButton.Click += new System.EventHandler(this.uxSendMessageButton_Click);
             // 
-            // uxMessageListView
+            // uxDisplayMessagesTextBox
             // 
-            this.uxMessageListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.uxMessageListView.FullRowSelect = true;
-            this.uxMessageListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.uxMessageListView.Location = new System.Drawing.Point(72, 41);
-            this.uxMessageListView.Name = "uxMessageListView";
-            this.uxMessageListView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.uxMessageListView.Size = new System.Drawing.Size(652, 250);
-            this.uxMessageListView.TabIndex = 2;
-            this.uxMessageListView.UseCompatibleStateImageBehavior = false;
-            this.uxMessageListView.View = System.Windows.Forms.View.Details;
+            this.uxDisplayMessagesTextBox.Location = new System.Drawing.Point(72, 46);
+            this.uxDisplayMessagesTextBox.Multiline = true;
+            this.uxDisplayMessagesTextBox.Name = "uxDisplayMessagesTextBox";
+            this.uxDisplayMessagesTextBox.Size = new System.Drawing.Size(652, 253);
+            this.uxDisplayMessagesTextBox.TabIndex = 2;
             // 
             // ClientGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 502);
-            this.Controls.Add(this.uxMessageListView);
+            this.Controls.Add(this.uxDisplayMessagesTextBox);
             this.Controls.Add(this.uxSendMessageButton);
             this.Controls.Add(this.uxMessageTextBox);
             this.Name = "ClientGUI";
@@ -84,7 +77,6 @@
 
         private System.Windows.Forms.TextBox uxMessageTextBox;
         private System.Windows.Forms.Button uxSendMessageButton;
-        private System.Windows.Forms.ListView uxMessageListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.TextBox uxDisplayMessagesTextBox;
     }
 }

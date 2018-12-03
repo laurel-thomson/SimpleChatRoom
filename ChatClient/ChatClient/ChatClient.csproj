@@ -58,6 +58,12 @@
     <Compile Include="ClientGUI.Designer.cs">
       <DependentUpon>ClientGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="NamePrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NamePrompt.Designer.cs">
+      <DependentUpon>NamePrompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ClientGUI.resx">
       <DependentUpon>ClientGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NamePrompt.resx">
+      <DependentUpon>NamePrompt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

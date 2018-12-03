@@ -14,11 +14,26 @@ namespace ChatClient
     {
         private Action<String> _sendMessage;
         private List<String> _messages;
+        private string _name;
 
         public ClientGUI()
         {
             _messages = new List<string>();
             InitializeComponent();
+            LaunchNamePrompt();
+        }
+
+        private void LaunchNamePrompt()
+        {
+            using (var form = new NamePrompt())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    _name = form.Name;
+                }
+            }
+
         }
 
         public void InitializeSendMessageDelegate(Action<String> SendMessage)
@@ -31,13 +46,14 @@ namespace ChatClient
             Invoke(new Action(() =>
             {
                 _messages.Add(message);
-                uxMessageListView.Items.Add(message);
+                uxDisplayMessagesTextBox.Text += message + "\r\n";
             }));
         }
 
         private void uxSendMessageButton_Click(object sender, EventArgs e)
         {
-            _sendMessage(uxMessageTextBox.Text);
+            _sendMessage(_name + ": " + uxMessageTextBox.Text);
+            uxMessageTextBox.Text = "";
         }
     }
 }
