@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChatRoomDirectory
+﻿namespace ChatRoomDirectory
 {
     public class ChatRoom
     {
