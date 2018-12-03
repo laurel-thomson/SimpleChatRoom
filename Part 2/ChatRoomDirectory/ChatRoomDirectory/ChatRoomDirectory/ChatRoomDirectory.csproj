@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\..\..\..\..\..\..\..\source\repos\Team2F2018-course-work2\Bid501\Lib\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
