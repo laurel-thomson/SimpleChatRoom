@@ -6,7 +6,8 @@ namespace ChatClient
 {
    public class ChatController
     {
-        private WebSocket _socket;
+        private WebSocket _directorySocket;
+        private WebSocket _serverSocket;
         private ClientGUI _gui;
         private ClientViewModel _viewModel;
 
@@ -15,38 +16,59 @@ namespace ChatClient
             _gui = gui;
             _viewModel = viewModel;
 
-            //Creating a new WebSocket that will connect to the WebServerSocket at port #11000
-            _socket = new WebSocket("ws://127.0.0.1:11000/chat");
-            _socket.OnMessage += (sender, e) => { MessageReceived(e.Data); };
-            _socket.Connect();
-            _socket.Send(":" + _viewModel.UserName);
-            _gui.InitializeSendMessageDelegate(SendMessage);
+            //Creating a new WebSocket that will connect to the ChatDirectory at port #11000
+            _directorySocket = new WebSocket("ws://127.0.0.1:11000/dir");
+            _directorySocket.OnMessage += (sender, e) => { DirectoryMessageReceived(e.Data); };
+            _directorySocket.Connect();
+            while (true)
+            {
+                //wait for the directory to connect
+            }
         }
 
-        public void MessageReceived(string message)
+        public void DirectoryMessageReceived(string message)
         {
-            if (message[0] == ':')
+            //the directory will send us a listing of all the chat rooms (the empty string means no chat rooms available)
+            if (message != "")
             {
-                //this means that a chosen name was rejected as a duplicate
-                _gui.Invoke(new Action(() =>
+                char[] delim = { ',' };
+                string[] messages = message.Split(delim, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < messages.Length; i += 3)
                 {
-                    _gui.RepromptForName();
-                }));
-                _socket.Send(":" + _viewModel.UserName);
+                    string name = messages[i];
+                    string port = messages[i + 1];
+                    string ipAddress = messages[i + 2];
+                    _viewModel.ChatRooms.Add(new ChatRoom(name, port, ipAddress));
+                }
+                _gui.PromptToJoinRoom();
+                ConnectToChatRoom();
             }
+            //if there are no chat rooms to connect to, not much for the chat client to do
             else
             {
-                //otherwise, the message is a chat message to be displayed
-                _gui.Invoke(new Action(() =>
-                {
-                    _viewModel.Messages.Add(new Message(message));
-                }));
+                MessageBox.Show("There are no chat servers to connect.  Try again later!");
+                Environment.Exit(0);
             }
+        }
+
+        private void ConnectToChatRoom()
+        {
+            //close the connection to the Directory
+            _directorySocket.Close();
+
+            //Creating a new WebSocket that will connect to the chosen chat server
+            _serverSocket = new WebSocket("ws://" +
+                _viewModel.ChosenChatRoom.IPAddress + ":" +
+                _viewModel.ChosenChatRoom.Port + "/chat");
+            _serverSocket.OnMessage += (sender, e) => { DirectoryMessageReceived(e.Data); };
+            _serverSocket.Connect();
+            _gui.InitializeSendMessageDelegate(SendMessage);
+            _gui.ShowDialog();
         }
 
         public void SendMessage(string message)
         {
-            _socket.Send(message);
+            _directorySocket.Send(message);
         }
     }
 }

@@ -9,9 +9,7 @@ namespace ChatClient
         {
             var viewModel = new ClientViewModel();
             var gui = new ClientGUI(viewModel);
-            gui.PromptForName();
             var client = new ChatController(gui, viewModel);
-            Application.Run(gui);
         }
     }
 }

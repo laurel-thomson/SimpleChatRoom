@@ -34,6 +34,11 @@ namespace ChatClient
             }
         }
 
+        public void PromptToJoinRoom()
+        {
+            new JoinRoomPrompt(_viewModel).ShowDialog();
+        }
+
         public void RepromptForName()
         {
             MessageBox.Show("Sorry! That name is already taken");

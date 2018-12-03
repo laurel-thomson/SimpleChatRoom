@@ -23,11 +23,6 @@ namespace ChatRoomDirectory
             Send(sb.ToString());
         }
 
-        protected override void OnClose(CloseEventArgs e)
-        {
-            //when a server closes, need to remove it from the directory
-        }
-
         protected override void OnMessage(MessageEventArgs e)
         {
             //should not be getting messages from a client (client will be given IPaddress & port number of 
