@@ -77,7 +77,7 @@
             this.Controls.Add(this.uxSendMessageButton);
             this.Controls.Add(this.uxMessageTextBox);
             this.Name = "ClientGUI";
-            this.Text = "ClientGUI";
+            this.Text = "Welcome to the Chat Room!";
             ((System.ComponentModel.ISupportInitialize)(this.clientViewModelBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
