@@ -11,17 +11,17 @@ namespace ChatRoomServer
     public class ServerController
     {
         public WebSocketServer Server { get; private set; }
+        public WebSocket Socket { get; private set; }
 
         private IList<ChatRoom> _allChatRooms = new List<ChatRoom>();
         private ChatRoom _chatRoom;
-        private WebSocket _socket;
 
         public ServerController()
         {
             //Creating a new WebSocket that will connect to the ChatRoomDirectory at port #11000
-            _socket = new WebSocket("ws://127.0.0.1:11000/dir");
-            _socket.OnMessage += (sender, e) => { MessageReceived(e.Data); };
-            _socket.Connect();
+            Socket = new WebSocket("ws://127.0.0.1:11000/dir");
+            Socket.OnMessage += (sender, e) => { MessageReceived(e.Data); };
+            Socket.Connect();
         }
 
         //All messages will be from the chat room directory, and will only be a listing of all chat rooms
@@ -85,7 +85,7 @@ namespace ChatRoomServer
             _chatRoom = new ChatRoom(name, port, "127.0.0.1");
 
             //send message to the ChatDirectory with the chosen name, port, and ipaddress
-            _socket.Send("JOIN" + _chatRoom.ToString());
+            Socket.Send("JOIN" + _chatRoom.ToString());
 
             SetUpChatRoom();
         }
@@ -98,6 +98,22 @@ namespace ChatRoomServer
             Server.AddWebSocketService<ChatSocketBehavior>("/chat");
 
             Server.Start();
+
+            while (true)
+            {
+                Console.WriteLine("Your chat server has been set up!  Type 'quit' to shut down the server.");
+                var input = Console.ReadLine();
+                if (input.ToLower() == "quit")
+                {
+                    CloseServer();
+                }
+            }
+        }
+
+        private void CloseServer()
+        {
+            Socket.Send("QUIT" + _chatRoom.Name);
+            Environment.Exit(0);
         }
     }
 }

@@ -11,9 +11,8 @@ namespace ChatRoomServer
 
             while (true)
             {
-                //busy wait to keep the program from exiting
+                //busy wait to keep the application running
             }
-
         }
     }
 }
