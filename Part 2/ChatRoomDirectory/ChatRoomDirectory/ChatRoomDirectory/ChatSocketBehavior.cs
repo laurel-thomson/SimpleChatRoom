@@ -30,6 +30,26 @@ namespace ChatRoomDirectory
             //each chat room and connect to the server on its own
 
             //if we get a message from a server, it could either be a join message or a quit message
+            string header = e.Data.Substring(0, 4);
+            string payload = e.Data.Substring(4);
+
+            if (header == "JOIN")
+            {
+                char[] delim = { ',' };
+                string[] messages = payload.Split(delim);
+                for (int i = 0; i < messages.Length; i += 3)
+                {
+                    string name = messages[i];
+                    string port = messages[i + 1];
+                    string ipAddress = messages[i + 2];
+                    ChatRooms.Add(new ChatRoom(name, port, ipAddress));
+                    Console.WriteLine("New chat room joined! Name = {0}, Port = {1}", name, port);
+                }
+            }
+            if (header == "QUIT")
+            {
+                //TODO: remove a server from the directory whenever it quits
+            }
         }
     }
 }
