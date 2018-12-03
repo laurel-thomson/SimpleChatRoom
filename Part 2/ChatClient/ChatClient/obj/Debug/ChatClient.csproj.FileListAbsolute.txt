@@ -28,3 +28,15 @@ C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignmen
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 1\ChatClient\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 1\ChatClient\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 1\ChatClient\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.csprojAssemblyReference.cache
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.ClientGUI.resources
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.JoinRoomPrompt.resources
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.NamePrompt.resources
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\laure\OneDrive\K-State Classes\Fall 2018\Networks\Programming Assignment C\Part 2\ChatClient\ChatClient\obj\Debug\ChatClient.pdb
