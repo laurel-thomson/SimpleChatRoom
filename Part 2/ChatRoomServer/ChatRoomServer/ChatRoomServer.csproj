@@ -46,6 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServerController.cs" />
+    <Compile Include="ChatRoom.cs" />
     <Compile Include="ChatSocketBehavior.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

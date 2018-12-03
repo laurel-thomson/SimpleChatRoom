@@ -12,9 +12,11 @@ namespace ChatRoomDirectory
 
         protected override void OnOpen()
         {
-            //if a client is connecting to the directory, send it a list of all chat rooms
-
-            //if a server is connecting to the directory, don't send it anything
+            //send the new client/server a listing of all current ChatRooms
+            foreach (var c in ChatRooms)
+            {
+                Send(c.ToString());
+            }
         }
 
         protected override void OnClose(CloseEventArgs e)
