@@ -60,15 +60,41 @@ namespace ChatClient
             _serverSocket = new WebSocket("ws://" +
                 _viewModel.ChosenChatRoom.IPAddress + ":" +
                 _viewModel.ChosenChatRoom.Port + "/chat");
-            _serverSocket.OnMessage += (sender, e) => { DirectoryMessageReceived(e.Data); };
+            _serverSocket.OnMessage += (sender, e) => { ServerMessageReceived(e.Data); };
             _serverSocket.Connect();
-            _gui.InitializeSendMessageDelegate(SendMessage);
+            _gui.InitializeSendMessageDelegate(SendMessageToServer);
+            _gui.PromptForName();
             _gui.ShowDialog();
         }
 
-        public void SendMessage(string message)
+        private void ServerMessageReceived(string message)
         {
-            _directorySocket.Send(message);
+            if (message[0] == ':')
+            {
+                //this means that a chosen name was rejected as a duplicate
+                _gui.RepromptForName();
+                _serverSocket.Send(":" + _viewModel.UserName);
+            }
+            else
+            {
+                //otherwise, the message is a chat message to be displayed
+                if (_gui.IsHandleCreated)
+                {
+                    _gui.Invoke(new Action(() =>
+                    {
+                        _viewModel.Messages.Add(new Message(message));
+                    }));
+                }
+                else
+                {
+                    _viewModel.Messages.Add(new Message(message));
+                }
+            }
+        }
+
+        public void SendMessageToServer(string message)
+        {
+            _serverSocket.Send(message);
         }
     }
 }
