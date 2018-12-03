@@ -30,6 +30,7 @@ namespace ChatClient
                 if (result == DialogResult.OK)
                 {
                     _viewModel.UserName = form.Name;
+                    _sendMessage(":" + _viewModel.UserName);
                 }
             }
         }
