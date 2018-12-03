@@ -21,9 +21,19 @@ namespace ChatRoomServer
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            //Whenever a new message is received by the server, broadcast
-            //the message to all clients.
-            Sessions.Broadcast(e.Data);
+            //A colon before a name is used to denote a message that contains only
+            //a new user's name
+            if(e.Data[0] == ':')
+            {
+                string name = e.Data.Substring(1);
+                Sessions.Broadcast(name + " has joined the chat.");
+            }
+            else
+            {
+                //The message is a general chat message that needs to be broadcasted to
+                //all the clients.
+                Sessions.Broadcast(e.Data);
+            }
         }
     }
 }

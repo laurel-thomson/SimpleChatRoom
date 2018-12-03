@@ -20,10 +20,9 @@ namespace ChatClient
         {
             _messages = new List<string>();
             InitializeComponent();
-            LaunchNamePrompt();
         }
 
-        private void LaunchNamePrompt()
+        public void LaunchNamePrompt()
         {
             using (var form = new NamePrompt())
             {
@@ -31,6 +30,7 @@ namespace ChatClient
                 if (result == DialogResult.OK)
                 {
                     _name = form.Name;
+                    _sendMessage(":" + _name);
                 }
             }
 

@@ -14,6 +14,7 @@ namespace ChatClient
             var gui = new ClientGUI();
             var client = new ChatController(gui);
             gui.InitializeSendMessageDelegate(client.SendMessage);
+            gui.LaunchNamePrompt();
             Application.Run(gui);
         }
     }
