@@ -25,10 +25,23 @@ namespace ChatClient
 
         public void MessageReceived(string message)
         {
-            _gui.Invoke(new Action(() =>
+            if (message[0] == ':')
+            {
+                //this means that a chosen name was rejected as a duplicate
+                _gui.Invoke(new Action(() =>
+                {
+                    _gui.RepromptForName();
+                }));
+                _socket.Send(":" + _viewModel.UserName);
+            }
+            else
+            {
+                //otherwise, the message is a chat message to be displayed
+                _gui.Invoke(new Action(() =>
                 {
                     _viewModel.Messages.Add(new Message(message));
                 }));
+            }
         }
 
         public void SendMessage(string message)

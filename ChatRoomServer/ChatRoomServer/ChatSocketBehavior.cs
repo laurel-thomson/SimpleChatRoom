@@ -7,8 +7,8 @@ namespace ChatRoomServer
 {
     public class ChatSocketBehavior : WebSocketBehavior
     {
-        public static List<String> Messages = new List<String>();
-        public static bool IsFirstUser = true;
+        public static List<string> Messages = new List<string>();
+        public static List<string> UserNames = new List<string>();
 
         protected override void OnOpen()
         {
@@ -26,16 +26,23 @@ namespace ChatRoomServer
             //a new user's name
             if(e.Data[0] == ':')
             {
-                if (IsFirstUser)
+                string name = e.Data.Substring(1);
+                if (UserNames.Count == 0)
                 {
                     Send("You are the first to join the chat!");
-                    IsFirstUser = false;
+                }
+                else if (UserNames.Contains(name))
+                {
+                    //When received from the server, a colon means that the
+                    //user name is already taken (names can't contain colons and user
+                    //messages are always prefaced by names)
+                    Send(":");
                 }
                 else
                 {
-                    string name = e.Data.Substring(1);
                     Sessions.Broadcast(name + " has joined the chat.");
                 }
+                UserNames.Add(name);
             }
             else
             {

@@ -34,6 +34,12 @@ namespace ChatClient
             }
         }
 
+        public void RepromptForName()
+        {
+            MessageBox.Show("Sorry! That name is already taken");
+            PromptForName();
+        }
+
         public void InitializeSendMessageDelegate(Action<String> SendMessage)
         {
             _sendMessage = SendMessage;
