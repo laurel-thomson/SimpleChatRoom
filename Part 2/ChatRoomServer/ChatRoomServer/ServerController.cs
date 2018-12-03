@@ -27,14 +27,19 @@ namespace ChatRoomServer
         //All messages will be from the chat room directory, and will only be a listing of all chat rooms
         private void MessageReceived(string data)
         {
-            char[] delim = { ',' };
-            string[] messages = data.Split(delim);
-            for (int i = 0; i < messages.Length; i += 3)
+            //If the ChatDirectory sends us the empty string, there are no other ChatRooms and we don't need
+            //to add anything to our ChatRooms listing
+            if (data != "")
             {
-                string name = messages[i];
-                string port = messages[i + 1];
-                string ipAddress = messages[i + 2];
-                _allChatRooms.Add(new ChatRoom(name, port, ipAddress));
+                char[] delim = { ',' };
+                string[] messages = data.Split(delim, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < messages.Length; i += 3)
+                {
+                    string name = messages[i];
+                    string port = messages[i + 1];
+                    string ipAddress = messages[i + 2];
+                    _allChatRooms.Add(new ChatRoom(name, port, ipAddress));
+                }
             }
             PromptUserForChatName();
         }
@@ -80,7 +85,7 @@ namespace ChatRoomServer
             _chatRoom = new ChatRoom(name, port, "127.0.0.1");
 
             //send message to the ChatDirectory with the chosen name, port, and ipaddress
-            _socket.Send("JOIN," + _chatRoom.ToString());
+            _socket.Send("JOIN" + _chatRoom.ToString());
 
             SetUpChatRoom();
         }

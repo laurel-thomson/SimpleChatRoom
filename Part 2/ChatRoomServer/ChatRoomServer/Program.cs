@@ -9,10 +9,11 @@ namespace ChatRoomServer
         {
             var handler = new ServerController();
 
-            //keep console open
-            Console.ReadLine();
+            while (true)
+            {
+                //busy wait to keep the program from exiting
+            }
 
-            handler.Server.Stop();
         }
     }
 }

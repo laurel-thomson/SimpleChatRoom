@@ -12,11 +12,14 @@ namespace ChatRoomDirectory
 
         protected override void OnOpen()
         {
-            //send the new client/server a listing of all current ChatRooms
+            //Whenever a new ChatServer or ChatClient connects to the Directory, send it a listing of
+            //all available ChatRooms and their IP Address/Port #s.  If there are none, send the empty string.
+            StringBuilder sb = new StringBuilder();
             foreach (var c in ChatRooms)
             {
-                Send(c.ToString());
+                sb.Append(c.ToString());
             }
+            Send(sb.ToString());
         }
 
         protected override void OnClose(CloseEventArgs e)
@@ -36,7 +39,7 @@ namespace ChatRoomDirectory
             if (header == "JOIN")
             {
                 char[] delim = { ',' };
-                string[] messages = payload.Split(delim);
+                string[] messages = payload.Split(delim,StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < messages.Length; i += 3)
                 {
                     string name = messages[i];
