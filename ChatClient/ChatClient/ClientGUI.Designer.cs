@@ -31,23 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.uxMessageTextBox = new System.Windows.Forms.TextBox();
             this.uxSendMessageButton = new System.Windows.Forms.Button();
-            this.uxMessagesDGV = new System.Windows.Forms.DataGridView();
             this.clientViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.uxMessagesDGV)).BeginInit();
+            this.uxMessagesListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.clientViewModelBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // uxMessageTextBox
             // 
-            this.uxMessageTextBox.Location = new System.Drawing.Point(72, 330);
+            this.uxMessageTextBox.Location = new System.Drawing.Point(641, 822);
             this.uxMessageTextBox.Name = "uxMessageTextBox";
             this.uxMessageTextBox.Size = new System.Drawing.Size(652, 44);
             this.uxMessageTextBox.TabIndex = 0;
             // 
             // uxSendMessageButton
             // 
-            this.uxSendMessageButton.Location = new System.Drawing.Point(72, 400);
+            this.uxSendMessageButton.Location = new System.Drawing.Point(641, 906);
             this.uxSendMessageButton.Name = "uxSendMessageButton";
             this.uxSendMessageButton.Size = new System.Drawing.Size(652, 61);
             this.uxSendMessageButton.TabIndex = 1;
@@ -55,51 +53,31 @@
             this.uxSendMessageButton.UseVisualStyleBackColor = true;
             this.uxSendMessageButton.Click += new System.EventHandler(this.uxSendMessageButton_Click);
             // 
-            // uxMessagesDGV
-            // 
-            this.uxMessagesDGV.AllowUserToAddRows = false;
-            this.uxMessagesDGV.AllowUserToDeleteRows = false;
-            this.uxMessagesDGV.AllowUserToResizeColumns = false;
-            this.uxMessagesDGV.AllowUserToResizeRows = false;
-            this.uxMessagesDGV.AutoGenerateColumns = false;
-            this.uxMessagesDGV.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.uxMessagesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxMessagesDGV.ColumnHeadersVisible = false;
-            this.uxMessagesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn});
-            this.uxMessagesDGV.DataSource = this.clientViewModelBindingSource1;
-            this.uxMessagesDGV.Location = new System.Drawing.Point(72, 36);
-            this.uxMessagesDGV.Name = "uxMessagesDGV";
-            this.uxMessagesDGV.ReadOnly = true;
-            this.uxMessagesDGV.RowHeadersVisible = false;
-            this.uxMessagesDGV.RowTemplate.Height = 46;
-            this.uxMessagesDGV.Size = new System.Drawing.Size(653, 259);
-            this.uxMessagesDGV.TabIndex = 2;
-            // 
             // clientViewModelBindingSource1
             // 
             this.clientViewModelBindingSource1.DataMember = "Messages";
             this.clientViewModelBindingSource1.DataSource = typeof(ChatClient.ClientViewModel);
             // 
-            // nameDataGridViewTextBoxColumn
+            // uxMessagesListBox
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.uxMessagesListBox.DataSource = this.clientViewModelBindingSource1;
+            this.uxMessagesListBox.FormattingEnabled = true;
+            this.uxMessagesListBox.ItemHeight = 37;
+            this.uxMessagesListBox.Location = new System.Drawing.Point(73, 42);
+            this.uxMessagesListBox.Name = "uxMessagesListBox";
+            this.uxMessagesListBox.Size = new System.Drawing.Size(1784, 707);
+            this.uxMessagesListBox.TabIndex = 2;
             // 
             // ClientGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 502);
-            this.Controls.Add(this.uxMessagesDGV);
+            this.ClientSize = new System.Drawing.Size(1937, 1037);
+            this.Controls.Add(this.uxMessagesListBox);
             this.Controls.Add(this.uxSendMessageButton);
             this.Controls.Add(this.uxMessageTextBox);
             this.Name = "ClientGUI";
             this.Text = "ClientGUI";
-            ((System.ComponentModel.ISupportInitialize)(this.uxMessagesDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientViewModelBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,9 +88,8 @@
 
         private System.Windows.Forms.TextBox uxMessageTextBox;
         private System.Windows.Forms.Button uxSendMessageButton;
-        private System.Windows.Forms.DataGridView uxMessagesDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource clientViewModelBindingSource1;
+        private System.Windows.Forms.ListBox uxMessagesListBox;
     }
 }

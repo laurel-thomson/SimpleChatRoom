@@ -19,7 +19,7 @@ namespace ChatClient
         {
             _viewModel = viewModel;
             InitializeComponent();
-            uxMessagesDGV.DataSource = _viewModel.Messages;
+            uxMessagesListBox.DataSource = _viewModel.Messages;
         }
 
         public void PromptForName()
