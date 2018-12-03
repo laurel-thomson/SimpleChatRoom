@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WebSocketSharp;
 using WebSocketSharp.Server;
@@ -51,7 +52,7 @@ namespace ChatRoomDirectory
             }
             if (header == "QUIT")
             {
-                //TODO: remove a server from the directory whenever it quits
+                ChatRooms.RemoveAll(x => x.Name == payload);
             }
         }
     }
