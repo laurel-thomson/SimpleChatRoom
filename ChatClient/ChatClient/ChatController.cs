@@ -19,7 +19,7 @@ namespace ChatClient
             _socket = new WebSocket("ws://127.0.0.1:11000/chat");
             _socket.OnMessage += (sender, e) => { MessageReceived(e.Data); };
             _socket.Connect();
-
+            _socket.Send(":" + _viewModel.UserName);
             _gui.InitializeSendMessageDelegate(SendMessage);
         }
 

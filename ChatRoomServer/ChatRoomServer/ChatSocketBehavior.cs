@@ -8,6 +8,7 @@ namespace ChatRoomServer
     public class ChatSocketBehavior : WebSocketBehavior
     {
         public static List<String> Messages = new List<String>();
+        public static bool IsFirstUser = true;
 
         protected override void OnOpen()
         {
@@ -25,8 +26,16 @@ namespace ChatRoomServer
             //a new user's name
             if(e.Data[0] == ':')
             {
-                string name = e.Data.Substring(1);
-                Sessions.Broadcast(name + " has joined the chat.");
+                if (IsFirstUser)
+                {
+                    Send("You are the first to join the chat!");
+                    IsFirstUser = false;
+                }
+                else
+                {
+                    string name = e.Data.Substring(1);
+                    Sessions.Broadcast(name + " has joined the chat.");
+                }
             }
             else
             {
